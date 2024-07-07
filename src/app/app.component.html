@@ -31,6 +31,39 @@
 <br>
  <label for="name">Name (4 to 8 characters):</label>
  <input id="name" type="text" (keyup)="keyEnter($event)">
+ <br>
 
  <label for="name2">Name (4 to 8 characters):</label>
- <input id="name2" type="text" (keyup.enter)="keyEnter2()">
+ <input id="name2" type="text" (keyup.enter)="keyEnter2(user)" #user >
+ <br>
+
+ <label for="property-bind">test bind</label>
+ <input id="property-bind" type="text" [value]="username" #username (keyup.enter)="updateUserName(username)">
+ <br>
+ <label for="property-bind-II">test bind</label>
+ <input id="property-bind-II" type="text" [(ngModel)]="username2">
+ <br>
+
+ <h3> {{username2}}</h3>
+
+ <!-- old way -->
+ <h2 *ngIf="isLoggedIn; else message">{{userNameExample}}</h2>
+<h4 *ngIf="!isLoggedIn"> User is not logged in</h4>
+
+<ng-template #message>
+<h4 *ngIf="!isLoggedIn"> Loaded using ng-template</h4>
+</ng-template>
+
+
+ <!-- new way -->
+
+ @if (isLoggedIn) {
+    <h3>{{userNameExample}}</h3>
+ }
+@else {
+    <h4>else syntax block</h4>
+}
+
+ @if (!isLoggedIn) {
+    <h4>User Logged out</h4>
+ }
