@@ -4,6 +4,7 @@ import { AppNavbar } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule} from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { bootstrapApplication } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -49,4 +50,9 @@ export class AppComponent {
   //   console.log(this.username2);
   // }
 
+  isAdmin: boolean = false;
+  isMember: boolean = false;
+  isGuest: boolean = true; 
+
 }
+

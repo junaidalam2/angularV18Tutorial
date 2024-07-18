@@ -67,3 +67,32 @@
  @if (!isLoggedIn) {
     <h4>User Logged out</h4>
  }
+
+ <!-- Multiple Conditions -->
+
+ <h4 *ngIf="isAdmin">Welcome Admin-1</h4>
+ <h4 *ngIf="isMember">Welcome Member-1</h4>
+ <h4 *ngIf="isGuest">Welcome Guest-1</h4>
+
+ <!-- ngIF and Else Approach -->
+
+ <h4 *ngIf="isAdmin; else memberMessage">Welcome Admin-2</h4>
+
+ <ng-template #memberMessage>
+ <h4 *ngIf="isMember; else guestMessage">Welcome Member-2</h4>
+</ng-template>
+
+<ng-template #guestMessage>
+   <h4 *ngIf="isGuest">Welcome Guest-2</h4>
+</ng-template>
+
+
+<!-- @if, @else Syntax Approach -->
+
+@if (isAdmin) {
+   <h4>Welcome Admin-3</h4>
+} @else if(isMember) {
+   <h4>Welcome Member-3</h4>
+} @else if(isGuest) {
+   <h4> Welcome Guest-3</h4>
+}
