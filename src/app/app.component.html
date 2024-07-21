@@ -96,3 +96,56 @@
 } @else if(isGuest) {
    <h4> Welcome Guest-3</h4>
 }
+
+<!-- if Directive with Number Values -->
+
+<button (click)="countLoginAttempts()" *ngIf="loginCount < 4">Log In</button>
+
+<h4 *ngIf="loginCount > 3">Exceeded 3 login Attempts, please try again later</h4>
+
+<br>
+<br>
+
+@if(loginCount < 4) {
+   <button (click)="countLoginAttempts()">Login Syntax</button>
+} @else {
+   <h4>Exceeded 3 login Attempts, please try again later</h4>
+}
+
+<!-- if Directive with String Values -->
+
+<br>
+<br>
+
+<h4 *ngIf="userRole == 'Admin'; else memberMessage1">Welcome Admin</h4>
+
+<ng-template #memberMessage1>
+   <h4>Welcome Member</h4>
+</ng-template>
+
+
+@if(userRole == 'Admin') {
+   <h4>Welcome Admin</h4>
+} @else {
+   <h4>Welcome Member</h4>
+}
+
+ <!-- ng Template Outlet -->
+
+ <ng-template #joinNowButton>
+   <p>Call to Action</p>
+   <button>Join Now</button>
+</ng-template>
+
+<div [ngTemplateOutlet]="joinNowButton">
+   <h5>Sidebar</h5>
+</div>
+<div [ngTemplateOutlet]="joinNowButton">
+   <h5>Hero</h5>
+</div>
+<div [ngTemplateOutlet]="joinNowButton">
+   <h5>Footer</h5>
+</div>
+
+
+
