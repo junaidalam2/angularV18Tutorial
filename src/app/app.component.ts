@@ -3,13 +3,13 @@ import { RouterOutlet } from '@angular/router';
 import { AppNavbar } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule} from '@angular/forms';
-import { NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { bootstrapApplication } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule, NgIf, NgTemplateOutlet],
+  imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule, NgIf, NgTemplateOutlet, NgFor],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -56,6 +56,14 @@ export class AppComponent {
   
   loginCount: number = 0;
   userRole: string = "Member";
+
+  users: Array<string> = ['John', 'Sam', 'Smith', 'Raj'];
+  userObj: Array<any> = [
+    {id: 1, name: 'John1', email: 'john@gmail.com'},
+    {id: 2, name: 'Smith1', email: 'smith@gmail.com'},
+    {id: 3, name: 'Sam1', email: 'sam@gmail.com'},
+    {id: 4, name: 'raj1', email: 'raj@gmail.com'},
+  ];
 
   countLoginAttempts() {
     this.loginCount++;

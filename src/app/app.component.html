@@ -147,5 +147,33 @@
    <h5>Footer</h5>
 </div>
 
+<!-- Ng For Directive -->
+
+<h3>{{users[0]}}</h3>
+<h3>{{users[1]}}</h3>
+<h3>{{users[2]}}</h3>
+<h3>{{users[3]}}</h3>
+
+<h3 *ngFor="let user of users">{{ user }}</h3>
+
+<p>For syntax Approach</p>
+@for(user of users; track user) {
+   <h3>{{ user }} - Loaded Using Syntax Block</h3>
+}
 
 
+<ul>
+   <li *ngFor="let user of users">{{ user }}</li>
+</ul>
+
+
+<ul>
+   @for(user of users; track user) {
+      <li> {{ user }} - Loaded Using Syntax Block</li>
+   }
+</ul>
+
+
+<ul>
+   <li *ngFor="let user of userObj">{{ user.name }}</li>
+</ul>
