@@ -70,6 +70,21 @@ export class AppComponent {
     console.log(this.loginCount)
   }
 
+  addNewUser() {
+    let user = {id:5, name: 'User 1', email: 'user1@gmail.com'};
+    this.userObj.push(user);
+  }
+
+  // onDelete(user:object) {
+  //   let index = this.userObj.indexOf(user);
+  //   this.userObj.splice(index, 1)
+
+  // }
+  onDelete(index:number) {
+    this.userObj.splice(index, 1)
+
+  }
+
 }
 
 

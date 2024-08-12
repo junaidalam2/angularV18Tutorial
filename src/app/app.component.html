@@ -175,5 +175,15 @@
 
 
 <ul>
-   <li *ngFor="let user of userObj">{{ user.name }}</li>
+   <li *ngFor="let user of userObj; let i = index">{{i}} {{ user.name }}<button (click)="onDelete(i)" >Delete User</button></li>
 </ul>
+
+<ul>
+using new syntax
+@for(user of userObj; track user) {
+   <li>{{user.name}}</li>
+}
+</ul>
+
+<!-- Change Detection -->
+ <button (click)="addNewUser()">Add New User</button>
