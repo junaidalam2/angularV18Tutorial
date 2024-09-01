@@ -65,6 +65,12 @@ export class AppComponent {
     {id: 4, name: 'raj1', email: 'raj@gmail.com'},
   ];
 
+constructor() {
+  console.log(this.userObj.length)
+}
+
+
+
   countLoginAttempts() {
     this.loginCount++;
     console.log(this.loginCount)

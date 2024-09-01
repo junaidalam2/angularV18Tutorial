@@ -178,10 +178,15 @@
    <li *ngFor="let user of userObj; let i = index">{{i}} {{ user.name }}<button (click)="onDelete(i)" >Delete User</button></li>
 </ul>
 
+<div *ngIf = "userObj.length === 0">
+   <p>No Users to Display</p>
+</div>
+
+
 <ul>
 using new syntax
-@for(user of userObj; track user) {
-   <li>{{user.name}}</li>
+@for(user of userObj; track user; let i = $index; let userCount = $count) {
+   <li>{{userCount}} - {{userObj.length}} - {{i}} {{user.name}} <button (click)="onDelete(i)">Delete</button></li>
 }
 </ul>
 
